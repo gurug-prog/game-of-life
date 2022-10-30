@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameOfLife.ConsoleHost", "G
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameOfLife.PerformingAlgorithms", "GameOfLife.PerformingAlgorithms\GameOfLife.PerformingAlgorithms.csproj", "{ABA06E1F-15CC-49D3-B9DA-0AC2C4439DA1}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameOfLife.Tests", "GameOfLife.Tests\GameOfLife.Tests.csproj", "{8F9EF7C2-A0C2-470C-A79E-CB23CFAC6E37}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{ABA06E1F-15CC-49D3-B9DA-0AC2C4439DA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ABA06E1F-15CC-49D3-B9DA-0AC2C4439DA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ABA06E1F-15CC-49D3-B9DA-0AC2C4439DA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F9EF7C2-A0C2-470C-A79E-CB23CFAC6E37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F9EF7C2-A0C2-470C-A79E-CB23CFAC6E37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F9EF7C2-A0C2-470C-A79E-CB23CFAC6E37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F9EF7C2-A0C2-470C-A79E-CB23CFAC6E37}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
