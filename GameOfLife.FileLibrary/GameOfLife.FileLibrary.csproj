@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\GameOfLife.Model\GameOfLife.Model.csproj" />
+  </ItemGroup>
+
 </Project>
