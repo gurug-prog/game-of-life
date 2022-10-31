@@ -1,6 +1,6 @@
 ﻿namespace GameOfLife.Tests;
 
-public class FileWriterTests
+public class ClassicFileWriterTests
 {
     [Fact]
     public void Test1()
