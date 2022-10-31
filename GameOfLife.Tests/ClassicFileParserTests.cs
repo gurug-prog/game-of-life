@@ -3,7 +3,7 @@ using GameOfLife.Model;
 
 namespace GameOfLife.Tests;
 
-public class FileParserTests
+public class ClassicFileParserTests
 {
     [Fact]
     public void ParseFromUnusedReader_Throws_FormatException()
