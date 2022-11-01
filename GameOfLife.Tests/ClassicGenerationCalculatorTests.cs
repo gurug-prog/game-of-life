@@ -1,6 +1,6 @@
 namespace GameOfLife.Tests;
 
-public class CalculatorTests
+public class ClassicGenerationCalculatorTests
 {
     [Fact]
     public void Test1()
