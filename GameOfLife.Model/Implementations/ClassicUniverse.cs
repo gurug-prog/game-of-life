@@ -7,6 +7,12 @@ public sealed class ClassicUniverse : IUniverse<
     ClassicGameRules,
     ClassicCell>
 {
+    public ClassicUniverse(
+        ClassicGeneration initialGeneration)
+    {
+        throw new NotImplementedException();
+    }
+
     public ClassicGeneration Initial
     {
         get { throw new NotImplementedException(); }

@@ -27,6 +27,11 @@ public sealed class ClassicGeneration : IGeneration<ClassicCell>
         Columns = Map.GetLength(1);
     }
 
+    public static bool Compare(ClassicGeneration cg1, ClassicGeneration cg2)
+    {
+        throw new NotImplementedException();
+    }
+
     public IEnumerator<ClassicCell> GetEnumerator()
     {
         throw new NotImplementedException();
