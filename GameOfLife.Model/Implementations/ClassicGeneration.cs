@@ -25,7 +25,25 @@ public sealed class ClassicGeneration : IGeneration<ClassicCell>
 
     public static bool Compare(ClassicGeneration cg1, ClassicGeneration cg2)
     {
-        throw new NotImplementedException();
+        var dimensionsAreNotMatching =
+            cg1.Rows != cg2.Rows || cg1.Columns != cg2.Columns;
+        if (dimensionsAreNotMatching)
+        {
+            return false;
+        }
+
+        for (int row = 0; row < cg1.Rows; row++)
+        {
+            for (int column = 0; column < cg1.Columns; column++)
+            {
+                if (cg1.Map[row, column] != cg2.Map[row, column])
+                {
+                    return false;
+                }
+            }
+        }
+
+        return true;
     }
 
     public IEnumerator<ClassicCell> GetEnumerator()
