@@ -21,4 +21,9 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\GameOfLife.FileLibrary\GameOfLife.FileLibrary.csproj" />
+    <ProjectReference Include="..\GameOfLife.PerformingAlgorithms\GameOfLife.PerformingAlgorithms.csproj" />
+  </ItemGroup>
+
 </Project>
