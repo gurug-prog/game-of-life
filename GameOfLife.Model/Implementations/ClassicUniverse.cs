@@ -7,29 +7,28 @@ public sealed class ClassicUniverse : IUniverse<
     ClassicGameRules,
     ClassicCell>
 {
+    public ClassicGeneration Initial { get; }
+
+    public ClassicGameRules Rules => ClassicGameRules.Instance;
+
     public ClassicUniverse(
         ClassicGeneration initialGeneration)
     {
-        throw new NotImplementedException();
-    }
-
-    public ClassicGeneration Initial
-    {
-        get { throw new NotImplementedException(); }
-    }
-
-    public ClassicGameRules Rules
-    {
-        get { throw new NotImplementedException(); }
+        Initial = initialGeneration ??
+            throw new ArgumentNullException(nameof(initialGeneration));
     }
 
     public IEnumerator<ClassicGeneration> GetEnumerator()
     {
-        throw new NotImplementedException();
+        var currentGeneration = Initial;
+
+        while (true)
+        {
+            yield return currentGeneration;
+            currentGeneration = Rules.Apply(currentGeneration);
+        }
     }
 
     IEnumerator IEnumerable.GetEnumerator()
-    {
-        throw new NotImplementedException();
-    }
+        => GetEnumerator();
 }
