@@ -1,5 +1,6 @@
 ﻿using GameOfLife.Model;
 using GameOfLife.FileLibrary;
+using GameOfLife.Model.Implementations;
 
 namespace GameOfLife.ConsoleHost;
 public class Program
@@ -17,7 +18,7 @@ public class Program
         // must be configurated with
         // fileParser.Generation
         // and rules
-        var universe = new ClassicUniverse();
+        var universe = new ClassicUniverse(ClassicSeed.Glider10x10);
         var iteration = 0;
 
         foreach (var generation in universe.Take(fileParser.Count))
