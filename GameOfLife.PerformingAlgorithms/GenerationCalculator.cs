@@ -28,7 +28,7 @@ public class GenerationCalculator<TGeneration, TRules, TCell>
     {
         TGeneration calculatedGeneration = _universe.Initial;
         var iteration = 0;
-        foreach (var generation in _universe)
+        foreach (var generation in _universe.Take(count + 1))
         {
             if (AllowConsoleLogging)
             {
@@ -40,6 +40,8 @@ public class GenerationCalculator<TGeneration, TRules, TCell>
                 calculatedGeneration = generation;
                 break;
             }
+
+            iteration++;
         }
 
         return calculatedGeneration;
