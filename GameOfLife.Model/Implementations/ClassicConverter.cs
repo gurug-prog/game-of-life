@@ -1,4 +1,6 @@
-﻿namespace GameOfLife.Model.Implementations;
+﻿using System.Text;
+
+namespace GameOfLife.Model.Implementations;
 
 public static class ClassicConverter
 {
@@ -38,5 +40,44 @@ public static class ClassicConverter
         }
 
         return charMatrix;
+    }
+
+    public static string ConvertFromCharsToString(char[,] charMatrix)
+    {
+        var height = charMatrix.GetLength(0);
+        var length = charMatrix.GetLength(0);
+        var sb = new StringBuilder();
+        for (int row = 0; row < height; row++)
+        {
+            for (int column = 0; column < length; column++)
+            {
+                sb.Append(charMatrix[row, column]);
+            }
+
+            sb.Append(Environment.NewLine);
+        }
+
+        return sb.ToString();
+    }
+
+    public static string ConvertFromCellsToString(ClassicCell[,] cellMatrix)
+    {
+        var height = cellMatrix.GetLength(0);
+        var length = cellMatrix.GetLength(0);
+        var sb = new StringBuilder();
+        for (int row = 0; row < height; row++)
+        {
+            for (int column = 0; column < length; column++)
+            {
+                sb.Append(
+                    cellMatrix[row, column] == ClassicCell.Alive
+                    ? 'x'
+                    : '.');
+            }
+
+            sb.Append(Environment.NewLine);
+        }
+
+        return sb.ToString();
     }
 }

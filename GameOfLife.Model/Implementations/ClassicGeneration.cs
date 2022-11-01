@@ -59,4 +59,9 @@ public sealed class ClassicGeneration : IGeneration<ClassicCell>
 
     IEnumerator IEnumerable.GetEnumerator()
         => GetEnumerator();
+
+    public override string? ToString()
+    {
+        return ClassicConverter.ConvertFromCellsToString(Map);
+    }
 }
