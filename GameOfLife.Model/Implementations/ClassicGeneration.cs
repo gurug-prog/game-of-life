@@ -30,11 +30,15 @@ public sealed class ClassicGeneration : IGeneration<ClassicCell>
 
     public IEnumerator<ClassicCell> GetEnumerator()
     {
-        throw new NotImplementedException();
+        for (int row = 0; row < Rows; row++)
+        {
+            for (int column = 0; column < Columns; column++)
+            {
+                yield return Map[row, column];
+            }
+        }
     }
 
     IEnumerator IEnumerable.GetEnumerator()
-    {
-        throw new NotImplementedException();
-    }
+        => GetEnumerator();
 }
