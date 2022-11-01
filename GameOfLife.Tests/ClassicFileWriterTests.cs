@@ -13,7 +13,7 @@ public class ClassicFileWriterTests
         IFileWriter<ClassicGeneration, ClassicCell> writer =
             new ClassicFileWriter();
 
-        writer.Write(FILE_PATH, ClassicSeed.Blicker);
+        writer.Write(FILE_PATH, ClassicSeed.Blinker);
 
         Assert.True(File.Exists(FILE_PATH));
     }

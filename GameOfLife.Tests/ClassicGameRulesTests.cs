@@ -38,7 +38,7 @@ public class ClassicGameRulesTests
             });
 
         var rules = ClassicGameRules.Instance;
-        var actualGeneration = rules.Apply(ClassicSeed.Blicker);
+        var actualGeneration = rules.Apply(ClassicSeed.Blinker);
 
         Assert.True(ClassicGeneration.Compare(
             expectedGeneration, actualGeneration));

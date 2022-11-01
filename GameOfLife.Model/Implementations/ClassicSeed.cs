@@ -13,7 +13,7 @@ public static class ClassicSeed
                 }
             );
 
-    public static ClassicGeneration Blicker
+    public static ClassicGeneration Blinker
         => new(
             new char[,]
                 {
