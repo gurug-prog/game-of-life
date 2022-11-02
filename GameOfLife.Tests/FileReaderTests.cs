@@ -28,7 +28,7 @@ public class FileReaderTests
         const string path = "./Assets/empty-file.txt";
         IFileReader fileReader = new ClassicFileReader();
 
-        Assert.Throws<IOException>(() => fileReader.Read(path));
+        Assert.Throws<FormatException>(() => fileReader.Read(path));
     }
 
     [Fact]
