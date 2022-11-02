@@ -87,10 +87,19 @@ public sealed class ClassicFileParser : IFileParser<ClassicGeneration, ClassicCe
 
             for (int j = 0; j < columns; j++)
             {
-                cellMatrix[i, j] =
-                    line[j] == 'x'
-                    ? ClassicCell.Alive
-                    : ClassicCell.Dead;
+                var matrixSymbol = line[j];
+                switch (matrixSymbol)
+                {
+                    case 'x':
+                        cellMatrix[i, j] = ClassicCell.Alive;
+                        break;
+                    case '.':
+                        cellMatrix[i, j] = ClassicCell.Dead;
+                        break;
+                    default:
+                        throw new FormatException("Unexpected matrix " +
+                            $"symbol: {matrixSymbol}");
+                }
             }
         }
 
