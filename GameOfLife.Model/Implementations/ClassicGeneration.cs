@@ -1,5 +1,4 @@
-﻿using GameOfLife.Model.Implementations;
-using System.Collections;
+﻿using System.Collections;
 
 namespace GameOfLife.Model;
 

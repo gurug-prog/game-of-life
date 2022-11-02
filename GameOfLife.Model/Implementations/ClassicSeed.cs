@@ -1,4 +1,4 @@
-﻿namespace GameOfLife.Model.Implementations;
+﻿namespace GameOfLife.Model;
 
 public static class ClassicSeed
 {

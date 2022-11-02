@@ -1,6 +1,5 @@
 ﻿using GameOfLife.FileLibrary;
 using GameOfLife.Model;
-using GameOfLife.Model.Implementations;
 
 namespace GameOfLife.Tests;
 

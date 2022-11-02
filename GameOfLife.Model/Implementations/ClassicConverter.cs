@@ -1,7 +1,6 @@
-﻿using System.Data.Common;
-using System.Text;
+﻿using System.Text;
 
-namespace GameOfLife.Model.Implementations;
+namespace GameOfLife.Model;
 
 public static class ClassicConverter
 {

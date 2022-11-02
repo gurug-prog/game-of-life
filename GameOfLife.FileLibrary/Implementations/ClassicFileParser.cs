@@ -1,5 +1,4 @@
 ﻿using GameOfLife.Model;
-using GameOfLife.Model.Implementations;
 
 namespace GameOfLife.FileLibrary;
 

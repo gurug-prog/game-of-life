@@ -1,5 +1,4 @@
 using GameOfLife.Model;
-using GameOfLife.Model.Implementations;
 using GameOfLife.PerformingAlgorithms;
 
 namespace GameOfLife.Tests;
