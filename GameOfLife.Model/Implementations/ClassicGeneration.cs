@@ -6,8 +6,8 @@ namespace GameOfLife.Model;
 public sealed class ClassicGeneration : IGeneration<ClassicCell>
 {
     public ClassicCell[,] Map { get; }
-    public int Columns => Map.GetLength(0);
-    public int Rows => Map.GetLength(1);
+    public int Rows => Map.GetLength(0);
+    public int Columns => Map.GetLength(1);
 
     public ClassicGeneration(ClassicCell[,] cellMatrix)
     {
