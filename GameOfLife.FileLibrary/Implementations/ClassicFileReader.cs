@@ -65,14 +65,21 @@ public sealed class ClassicFileReader : IFileReader
     private void ReadGeneration(StreamReader reader)
     {
         var sb = new StringBuilder();
-        var generationLine = reader.ReadLine() ??
+        var generationLine = reader.ReadLine();
+        if (String.IsNullOrEmpty(generationLine))
+        {
             throw new FormatException("File does not contain " +
             "generation matrix.");
+        }
+
         while (generationLine != null)
         {
             sb.Append(generationLine);
-            sb.Append(Environment.NewLine);
             generationLine = reader.ReadLine();
+            if (generationLine != null)
+            {
+                sb.Append(Environment.NewLine);
+            }
         }
 
         GenerationString = sb.ToString();
