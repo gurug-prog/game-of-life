@@ -22,7 +22,7 @@ public class ClassicFileParserTests
     [Fact]
     public void Parse_FileContainsBadGenerationsCount_Throws_FormatException()
     {
-        const string FILE_PATH = "../Assets/test-parser_incorrect-count.txt";
+        const string FILE_PATH = "./Assets/test-parser_incorrect-count.txt";
         IFileReader fileReader = new ClassicFileReader();
         fileReader.Read(FILE_PATH);
 
@@ -38,7 +38,7 @@ public class ClassicFileParserTests
     [Fact]
     public void Parse_FileContainsBadHeader_Throws_FormatException()
     {
-        const string FILE_PATH = "../Assets/test-parser_incorrect-header.txt";
+        const string FILE_PATH = "./Assets/test-parser_incorrect-header.txt";
         IFileReader fileReader = new ClassicFileReader();
         fileReader.Read(FILE_PATH);
 
@@ -54,7 +54,7 @@ public class ClassicFileParserTests
     [Fact]
     public void Parse_FileContainsBadGameMatrix_Throws_FormatException()
     {
-        const string FILE_PATH = "../Assets/test-parser_incorrect-matrix.txt";
+        const string FILE_PATH = "./Assets/test-parser_incorrect-matrix.txt";
         IFileReader fileReader = new ClassicFileReader();
         fileReader.Read(FILE_PATH);
 
@@ -71,7 +71,7 @@ public class ClassicFileParserTests
     public void Parse_FileContainsGlider_ReturnsGlider()
     {
         ClassicGeneration expected = default!;
-        const string FILE_PATH = "../Assets/glider.txt";
+        const string FILE_PATH = "./Assets/glider.txt";
         IFileReader fileReader = new ClassicFileReader();
         fileReader.Read(FILE_PATH);
 
@@ -85,7 +85,7 @@ public class ClassicFileParserTests
     public void Parse_FileContainsCount_5_CountEquals_5()
     {
         const int expected = 5;
-        const string FILE_PATH = "../Assets/glider.txt";
+        const string FILE_PATH = "./Assets/glider.txt";
         IFileReader fileReader = new ClassicFileReader();
         fileReader.Read(FILE_PATH);
 
