@@ -10,7 +10,7 @@ public class FileReaderTests
         const string path = "";
         IFileReader fileReader = new ClassicFileReader();
 
-        Assert.Throws<IOException>(() => fileReader.Read(path));
+        Assert.ThrowsAny<IOException>(() => fileReader.Read(path));
     }
 
     [Fact]
@@ -19,7 +19,7 @@ public class FileReaderTests
         const string path = "what !the f@$$ is it [a really --correc*t path???";
         IFileReader fileReader = new ClassicFileReader();
 
-        Assert.Throws<IOException>(() => fileReader.Read(path));
+        Assert.ThrowsAny<IOException>(() => fileReader.Read(path));
     }
 
     [Fact]
