@@ -1,6 +1,6 @@
 ﻿using GameOfLife.Model;
 using GameOfLife.FileLibrary;
-using GameOfLife.Model.Implementations;
+using GameOfLife.PerformingAlgorithms;
 
 namespace GameOfLife.ConsoleHost;
 public class Program
@@ -9,32 +9,21 @@ public class Program
     {
         const string INPUT_FILE_PATH = "./input.txt";
         const string OUTPUT_FILE_PATH = "./output.txt";
+
         var fileReader = new ClassicFileReader();
         fileReader.Read(INPUT_FILE_PATH);
 
         var fileParser = new ClassicFileParser();
         fileParser.Parse(fileReader);
 
-        // must be configurated with
-        // fileParser.Generation
-        // and rules
-        var universe = new ClassicUniverse(ClassicSeed.Glider10x10);
-        var iteration = 0;
+        var universe = new ClassicUniverse(fileParser.Generation!);
+        var calculator = new ClassicGenerationCalculator(universe, true);
+        var outputGeneration = calculator.Calculate(fileParser.Count);
 
-        foreach (var generation in universe.Take(fileParser.Count))
-        {
-            Console.WriteLine($"Generation: {iteration++}");
-            Console.WriteLine(generation);
-            Console.WriteLine();
-
-            if (iteration == fileParser.Count)
-            {
-                var fileWriter = new ClassicFileWriter();
-                fileWriter.Write(OUTPUT_FILE_PATH, generation);
-            }
-        }
+        var fileWriter = new ClassicFileWriter();
+        fileWriter.Write(OUTPUT_FILE_PATH, outputGeneration);
 
         Console.WriteLine("Written generation:");
-        Console.WriteLine(fileParser.Generation);
+        Console.WriteLine(outputGeneration);
     }
 }
