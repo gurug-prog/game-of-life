@@ -21,11 +21,11 @@ public class ClassicFileWriterTests
     [Fact]
     public void Write_PathDoesNotExist_Throws_IOException()
     {
-        const string FILE_PATH = "hey, what r u finding here???";
+        const string FILE_PATH = "hey/\\\\/$//,!/**\"\\@@ /w/a# r u/ f!d/ing h/er/e??";
         IFileWriter<ClassicGeneration, ClassicCell> writer =
             new ClassicFileWriter();
 
-        Assert.Throws<IOException>(
+        Assert.ThrowsAny<IOException>(
             () => writer.Write(FILE_PATH, ClassicSeed.Block));
     }
 }
