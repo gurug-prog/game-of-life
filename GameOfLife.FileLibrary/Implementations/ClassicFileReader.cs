@@ -50,7 +50,7 @@ public sealed class ClassicFileReader : IFileReader
     {
         var str = reader.ReadLine();
         CountString = str ??
-            throw new FormatException("File does not contain" +
+            throw new FormatException("File does not contain " +
             "count of generation to be calculated.");
     }
 
@@ -58,7 +58,7 @@ public sealed class ClassicFileReader : IFileReader
     {
         var str = reader.ReadLine();
         GenerationHeader = str ??
-            throw new FormatException("File does not contain" +
+            throw new FormatException("File does not contain " +
             "initial generation header.");
     }
 
@@ -66,7 +66,7 @@ public sealed class ClassicFileReader : IFileReader
     {
         var sb = new StringBuilder();
         var generationLine = reader.ReadLine() ??
-            throw new FormatException("File does not contain" +
+            throw new FormatException("File does not contain " +
             "generation matrix.");
         while (generationLine != null)
         {

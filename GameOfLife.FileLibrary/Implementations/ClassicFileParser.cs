@@ -71,7 +71,7 @@ public sealed class ClassicFileParser : IFileParser<ClassicGeneration, ClassicCe
         var lines = matrix.Split(Environment.NewLine);
         if (lines.Length != rows)
         {
-            throw new FormatException("Header rows count does not" +
+            throw new FormatException("Header rows count does not " +
                 $"match matrix rows count.");
         }
 
@@ -81,7 +81,7 @@ public sealed class ClassicFileParser : IFileParser<ClassicGeneration, ClassicCe
             var line = lines[i];
             if (line.Length != columns)
             {
-                throw new FormatException("Header columns count does not" +
+                throw new FormatException("Header columns count does not " +
                     $"match matrix columns count.");
             }
 
