@@ -5,15 +5,6 @@ namespace GameOfLife.Tests;
 public class FileReaderTests
 {
     [Fact]
-    public void Read_EmptyFilepathIsSpecified_Throws_IOException()
-    {
-        const string path = "";
-        IFileReader fileReader = new ClassicFileReader();
-
-        Assert.ThrowsAny<IOException>(() => fileReader.Read(path));
-    }
-
-    [Fact]
     public void Read_BadFilepathIsSpecified_Throws_IOException()
     {
         const string path = "what !the f@$$ is it [a really --correc*t path???";
