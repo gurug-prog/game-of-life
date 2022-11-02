@@ -6,7 +6,7 @@ namespace GameOfLife.Tests;
 public class ClassicFileParserTests
 {
     [Fact]
-    public void ParseFromUnusedReader_Throws_FormatException()
+    public void ParseFromUnusedReader_Throws_ArgumentException()
     {
         IFileReader fileReader = new ClassicFileReader();
 
@@ -16,7 +16,7 @@ public class ClassicFileParserTests
             parser.Parse(fileReader);
         };
 
-        Assert.Throws<FormatException>(act);
+        Assert.Throws<ArgumentException>(act);
     }
 
     [Fact]
