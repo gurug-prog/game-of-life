@@ -70,7 +70,20 @@ public class ClassicFileParserTests
     [Fact]
     public void Parse_FileContainsGlider_ReturnsGlider()
     {
-        ClassicGeneration expected = default!;
+        var expectedGeneration = new ClassicGeneration(
+            new char[,]
+            {
+                { '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', },
+                { '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', },
+                { '.', '.', '.', 'x', '.', 'x', '.', '.', '.', '.', '.', '.', '.', '.', '.', },
+                { '.', '.', '.', '.', 'x', 'x', '.', '.', '.', '.', '.', '.', '.', '.', '.', },
+                { '.', '.', '.', '.', 'x', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', },
+                { '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', },
+                { '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', },
+                { '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', },
+                { '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', },
+                { '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', },
+            });
         const string FILE_PATH = "./Assets/glider.txt";
         IFileReader fileReader = new ClassicFileReader();
         fileReader.Read(FILE_PATH);
@@ -78,7 +91,7 @@ public class ClassicFileParserTests
         var parser = new ClassicFileParser();
         parser.Parse(fileReader);
 
-        Assert.Equal(expected, parser.Generation);
+        Assert.True(ClassicGeneration.Compare(expectedGeneration, parser.Generation!));
     }
 
     [Fact]
