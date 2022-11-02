@@ -23,5 +23,5 @@ public interface IFileParser<TGeneration, TCell>
     // Returns:
     //     The generation to which the calculations
     //     may be applied.
-    TGeneration Generation { get; }
+    TGeneration? Generation { get; }
 }

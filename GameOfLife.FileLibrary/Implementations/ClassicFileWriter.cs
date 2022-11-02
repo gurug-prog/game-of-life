@@ -6,6 +6,6 @@ public sealed class ClassicFileWriter : IFileWriter<ClassicGeneration, ClassicCe
 {
     public void Write(string path, ClassicGeneration generation)
     {
-        throw new NotImplementedException();
+        File.WriteAllText(path, generation.ToString());
     }
 }
