@@ -68,4 +68,200 @@ public class ClassicGenerationCalculatorTests
         Assert.True(ClassicGeneration.Compare(
             expectedGeneration, actualGeneration));
     }
+
+    [Fact]
+    public void Calculate_StillLife25Times_Result_PatternHasNotChanged()
+    {
+        const int generationCount = 25;
+        var inputGeneration = new ClassicGeneration(
+            new char[,]
+            {
+                { '.', '.', '.', '.', '.', '.', '.', '.', '.', },
+                { '.', '.', '.', '.', '.', '.', '.', '.', '.', },
+                { '.', '.', '.', '.', 'x', '.', '.', '.', '.', },
+                { '.', '.', '.', 'x', '.', 'x', '.', '.', '.', },
+                { '.', '.', '.', 'x', '.', 'x', '.', '.', '.', },
+                { '.', '.', '.', '.', 'x', '.', '.', '.', '.', },
+                { '.', '.', '.', '.', '.', '.', '.', '.', '.', },
+                { '.', '.', '.', '.', '.', '.', '.', '.', '.', },
+            });
+        var expectedGeneration = new ClassicGeneration(
+            new char[,]
+            {
+                { '.', '.', '.', '.', '.', '.', '.', '.', '.', },
+                { '.', '.', '.', '.', '.', '.', '.', '.', '.', },
+                { '.', '.', '.', '.', 'x', '.', '.', '.', '.', },
+                { '.', '.', '.', 'x', '.', 'x', '.', '.', '.', },
+                { '.', '.', '.', 'x', '.', 'x', '.', '.', '.', },
+                { '.', '.', '.', '.', 'x', '.', '.', '.', '.', },
+                { '.', '.', '.', '.', '.', '.', '.', '.', '.', },
+                { '.', '.', '.', '.', '.', '.', '.', '.', '.', },
+            });
+        var universe = new ClassicUniverse(inputGeneration);
+        var calculator = new ClassicGenerationCalculator(universe);
+
+        var actualGeneration = calculator.Calculate(generationCount);
+
+        Assert.True(ClassicGeneration.Compare(
+            expectedGeneration, actualGeneration));
+    }
+
+    [Fact]
+    public void Calculate_Glider666Times_Result_PatternMatchesExpected()
+    {
+        const int generationCount = 666;
+        var inputGeneration = ClassicSeed.Glider10x10;
+        var expectedGeneration = new ClassicGeneration(
+            new char[,]
+            {
+                { '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', },
+                { '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', },
+                { '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', },
+                { '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', },
+                { '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', },
+                { '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', },
+                { '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', },
+                { '.', '.', '.', '.', '.', '.', '.', '.', 'x', '.', },
+                { '.', '.', '.', '.', '.', '.', 'x', '.', 'x', '.', },
+                { '.', '.', '.', '.', '.', '.', '.', 'x', 'x', '.', },
+            });
+        var universe = new ClassicUniverse(inputGeneration);
+        var calculator = new ClassicGenerationCalculator(universe);
+
+        var actualGeneration = calculator.Calculate(generationCount);
+
+        Assert.True(ClassicGeneration.Compare(
+            expectedGeneration, actualGeneration));
+    }
+
+    [Fact]
+    public void Calculate_GliderPeriodTimes_Result_PatternWasShiftedButStillLookLikeOriginal()
+    {
+        const int gliderPeriod = 4;
+        var inputGeneration = ClassicSeed.Glider10x10;
+        var expectedGeneration = new ClassicGeneration(
+            new char[,]
+            {
+                { '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', },
+                { '.', '.', 'x', '.', '.', '.', '.', '.', '.', '.', },
+                { '.', '.', '.', 'x', '.', '.', '.', '.', '.', '.', },
+                { '.', 'x', 'x', 'x', '.', '.', '.', '.', '.', '.', },
+                { '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', },
+                { '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', },
+                { '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', },
+                { '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', },
+                { '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', },
+                { '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', },
+            });
+        var universe = new ClassicUniverse(inputGeneration);
+        var calculator = new ClassicGenerationCalculator(universe);
+
+        var actualGeneration = calculator.Calculate(gliderPeriod);
+
+        Assert.True(ClassicGeneration.Compare(
+            expectedGeneration, actualGeneration));
+    }
+
+    [Fact]
+    public void Calculate_GliderInTheRightBottomCorner_Result_PatternCrossedTopOfTheMap()
+    {
+        const int generationCount = 1;
+        var inputGeneration = new ClassicGeneration(
+            new char[,]
+            {
+                { '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', },
+                { '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', },
+                { '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', },
+                { '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', },
+                { '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', },
+                { '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', },
+                { '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', },
+                { '.', '.', '.', '.', '.', '.', '.', '.', 'x', '.', },
+                { '.', '.', '.', '.', '.', '.', '.', '.', '.', 'x', },
+                { '.', '.', '.', '.', '.', '.', '.', 'x', 'x', 'x', },
+            });
+        var expectedGeneration = new ClassicGeneration(
+            new char[,]
+            {
+                { '.', '.', '.', '.', '.', '.', '.', '.', 'x', '.', },
+                { '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', },
+                { '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', },
+                { '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', },
+                { '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', },
+                { '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', },
+                { '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', },
+                { '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', },
+                { '.', '.', '.', '.', '.', '.', '.', 'x', '.', 'x', },
+                { '.', '.', '.', '.', '.', '.', '.', '.', 'x', 'x', },
+            });
+        var universe = new ClassicUniverse(inputGeneration);
+        var calculator = new ClassicGenerationCalculator(universe);
+
+        var actualGeneration = calculator.Calculate(generationCount);
+
+        Assert.True(ClassicGeneration.Compare(
+            expectedGeneration, actualGeneration));
+    }
+
+    [Fact]
+    public void Calculate_BlinkerPusshedAtTheRightBorder_Result_BlinkerCrossedTheLeftBorder()
+    {
+        const int generationCount = 1;
+        var inputGeneration = new ClassicGeneration(
+            new char[,]
+            {
+                { '.', '.', '.', '.', '.', },
+                { '.', '.', '.', '.', 'x', },
+                { '.', '.', '.', '.', 'x', },
+                { '.', '.', '.', '.', 'x', },
+                { '.', '.', '.', '.', '.', },
+            });
+        var expectedGeneration = new ClassicGeneration(
+            new char[,]
+            {
+                { '.', '.', '.', '.', '.', },
+                { '.', '.', '.', '.', '.', },
+                { 'x', '.', '.', 'x', 'x', },
+                { '.', '.', '.', '.', '.', },
+                { '.', '.', '.', '.', '.', },
+            });
+        var universe = new ClassicUniverse(inputGeneration);
+        var calculator = new ClassicGenerationCalculator(universe);
+
+        var actualGeneration = calculator.Calculate(generationCount);
+
+        Assert.True(ClassicGeneration.Compare(
+            expectedGeneration, actualGeneration));
+    }
+
+    [Fact]
+    public void Calculate_GliderCrossedMapCornerCase_Result_GliderCrumbledOverTheMap()
+    {
+        const int generationCount = 1;
+        var inputGeneration = new ClassicGeneration(
+            new char[,]
+            {
+                { '.', '.', '.', 'x', 'x', },
+                { '.', '.', '.', '.', '.', },
+                { '.', '.', '.', '.', '.', },
+                { '.', '.', 'x', '.', 'x', },
+                { '.', '.', '.', '.', 'x', },
+            });
+        var expectedGeneration = new ClassicGeneration(
+            new char[,]
+            {
+                { '.', '.', '.', 'x', 'x', },
+                { '.', '.', '.', '.', '.', },
+                { '.', '.', '.', '.', '.', },
+                { '.', '.', '.', 'x', '.', },
+                { 'x', '.', '.', '.', 'x', },
+            });
+        var universe = new ClassicUniverse(inputGeneration);
+        var calculator = new ClassicGenerationCalculator(universe);
+
+        var actualGeneration = calculator.Calculate(generationCount);
+
+        Assert.True(ClassicGeneration.Compare(
+            expectedGeneration, actualGeneration));
+    }
 }
